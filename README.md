@@ -5,9 +5,19 @@ This repository contains Swift sample code to collect cellular data including ca
 The ```master``` branch of this repository contains samples configured for the latest available version of [ArcGIS Runtime SDK for iOS](https://developers.arcgis.com/en/ios/). For samples configured for older versions of the SDK,  look under the ```Releases``` tab for a specific version.
 
 
+## Settings
+
+Go to device settings, find the app CellSignal in the list to change the feature service layer you've created and hosted. The User ID and password settings are for using the service services. 
+
+![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0087.PNG?raw=true)
+
 ## Features
 
+The app needs to be running on the foreground to work, will measure the cell coverage and will send that information to your feature service or, when offline, store it in the device until, connection to the feature service is being restored. The user does not need to interact with the app, only needs to make sure the app is running on the foreground. 
+
 ![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0085.PNG?raw=true)
+
+The chart will show a historical view of the measurements. The scale is from 0 to 4, depending on the cell bars received. 
 
 ![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0086.PNG?raw=true)
 
