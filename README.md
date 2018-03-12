@@ -21,35 +21,36 @@ The chart will show a historical view of the measurements. The scale is from 0 t
 
 ![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0086.PNG?raw=true)
 
+To change how we capture the cell service information, please refer to this function.
 
 ```
 private func getSignalStrengthiOS11() -> Int {
-let application = UIApplication.shared
-if let statusBarView = application.value(forKey: "statusBar") as? UIView {
+     let application = UIApplication.shared
+     if let statusBarView = application.value(forKey: "statusBar") as? UIView {
 
-for subbiew in statusBarView.subviews {
+     for subbiew in statusBarView.subviews {
 
-if isiPhoneX() {
+     if isiPhoneX() {
 
-return getSignalStrengthiPhoneX()
+          return getSignalStrengthiPhoneX()
 
-} else {
-if subbiew.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarForegroundView)" {
-for subbiew2 in subbiew.subviews {
+     } else {
+          if subbiew.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarForegroundView)" {
+          for subbiew2 in subbiew.subviews {
 
-if subbiew2.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarSignalStrengthItemView)" {
+               if subbiew2.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarSignalStrengthItemView)" {
 
-let bars = subbiew2.value(forKey: "signalStrengthBars") as! Int
-//print("bars \(bars)")
-return bars
-}
-}
-}
-}
-}
-}
+               let bars = subbiew2.value(forKey: "signalStrengthBars") as! Int
 
-return 0 //NO SERVICE
+               return bars
+               }
+            }
+         }
+      }
+    }
+ }
+
+ return 0 //NO SERVICE
 }
 ```
 
