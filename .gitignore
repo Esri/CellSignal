@@ -68,7 +68,6 @@ fastlane/test_output
 .DS_Store
 
 *.gif
-*.png
 *.scn
 *.jpg
 *.mlmodel
