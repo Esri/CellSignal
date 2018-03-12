@@ -17,9 +17,41 @@ The app needs to be running on the foreground to work, will measure the cell cov
 
 ![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0085.PNG?raw=true)
 
-The chart will show a historical view of the measurements. The scale is from 0 to 4, depending on the cell bars received. 
+The chart will show a historical view of the measurements. The scale is from 0 to 4, depending on the cell bars received. A custom map can show the intended extent as well as a simple rendering of the data. 
 
 ![Screen Shot](https://github.com/ArcGIS/CellSignal/blob/master/Screenshots/IMG_0086.PNG?raw=true)
+
+
+```
+private func getSignalStrengthiOS11() -> Int {
+let application = UIApplication.shared
+if let statusBarView = application.value(forKey: "statusBar") as? UIView {
+
+for subbiew in statusBarView.subviews {
+
+if isiPhoneX() {
+
+return getSignalStrengthiPhoneX()
+
+} else {
+if subbiew.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarForegroundView)" {
+for subbiew2 in subbiew.subviews {
+
+if subbiew2.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarSignalStrengthItemView)" {
+
+let bars = subbiew2.value(forKey: "signalStrengthBars") as! Int
+//print("bars \(bars)")
+return bars
+}
+}
+}
+}
+}
+}
+
+return 0 //NO SERVICE
+}
+```
 
 
 ## Requirements
