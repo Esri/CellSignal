@@ -82,7 +82,6 @@ class SignalStrength: NSObject {
                 if isiPhoneX() {
                     
                     return getSignalStrengthiPhoneX()
-                    
                 } else {
                     if subbiew.classForKeyedArchiver.debugDescription == "Optional(UIStatusBarForegroundView)" {
                         for subbiew2 in subbiew.subviews {
@@ -119,6 +118,10 @@ class SignalStrength: NSObject {
                 //print("iPhone X")
                 return true
             default:
+                // iPhone XR, X+ 11 etc
+                if UIScreen.main.nativeBounds.height > 2436 {
+                    return true
+                }
                 break
                 //print("unknown")
             }
@@ -171,7 +174,6 @@ class SignalStrength: NSObject {
     // Not in used at this time.
     func getSignalStrengthPrivate() -> Int {
 
-        //int CTGetSignalStrength();
         let libHandle = dlopen ("/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony", RTLD_NOW)
         let CTGetSignalStrength2 = dlsym(libHandle, "CTGetSignalStrength")
         

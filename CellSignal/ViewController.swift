@@ -167,11 +167,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(urlString, forKey: SettingsBundleHelper.SettingsBundleKeys.FeatureService)
             }
             if username == nil {
-                username = "blank"
+                username = "apascual_apl"
                 UserDefaults.standard.set(username, forKey: SettingsBundleHelper.SettingsBundleKeys.Username)
             }
             if password == nil {
-                password = "blank"
+                password = "380newyork"
                 UserDefaults.standard.set(password, forKey: SettingsBundleHelper.SettingsBundleKeys.Password)
             }
             if webMap == nil {
@@ -457,8 +457,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 // TODO Make sure the data plan actually works
                 
             }
-            
         }
+        
         reachability.whenUnreachable = { [weak self] _ in
             print("Not reachable")
             self?.hasInternet = false
