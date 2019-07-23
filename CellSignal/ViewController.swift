@@ -171,7 +171,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(username, forKey: SettingsBundleHelper.SettingsBundleKeys.Username)
             }
             if password == nil {
-                password = "380newyork"
+                password = "blank"
                 UserDefaults.standard.set(password, forKey: SettingsBundleHelper.SettingsBundleKeys.Password)
             }
             if webMap == nil {
